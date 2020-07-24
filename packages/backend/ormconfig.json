@@ -1,17 +1,17 @@
 {
-   "type": "mysql",
+   "type": "sqlite",
    "host": "localhost",
    "port": 3306,
-   "username": "test",
-   "password": "test",
-   "database": "test",
+   "username": "root",
+   "password": "",
+   "database": "database.sqlite",
    "synchronize": true,
    "logging": false,
    "entities": [
-      "src/entity/**/*.ts"
+      "src/infra/Entity/*.ts"
    ],
    "migrations": [
-      "src/migration/**/*.ts"
+      "src/database/migration/*.ts"
    ],
    "subscribers": [
       "src/subscriber/**/*.ts"

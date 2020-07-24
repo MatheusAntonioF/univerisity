@@ -7,21 +7,18 @@ import {
   ManyToMany,
 } from 'typeorm';
 
-import OfferedClass from '../../OfferedClass/Entity/OfferedClass.entity';
+import Student from './Student.entity';
 
 @Entity()
-class Student {
+class OfferedClass {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  name: number;
 
-  @Column()
-  email: string;
-
-  @ManyToMany(() => OfferedClass, offClass => offClass.students)
-  classes: OfferedClass[];
+  @ManyToMany(() => Student, student => student.classes)
+  students: Student[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
@@ -30,4 +27,4 @@ class Student {
   updatedAt: Date;
 }
 
-export default Student;
+export default OfferedClass;
