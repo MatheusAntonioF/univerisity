@@ -31,7 +31,9 @@
           "ts": "never"
         }
       ],
-      "camelcase": "off"
+      "camelcase": "off",
+      "class-methods-use-this": "off",
+      "import/prefer-default-export": "off"
     },
     "settings": {
       "import/resolver": {
