@@ -1,16 +1,46 @@
 import { Request, Response } from 'express';
 
-import Student from '../entities/Student.entity';
-
 import { getStudentRepository } from '../../database';
 
 class StudentController {
+  async list(request: Request, response: Response): Promise<Response> {
+    const allStudents = await getStudentRepository().getAllStudents();
+
+    return response.json(allStudents);
+  }
+
+  async show(
+    request: Request<{ id: string }>,
+    response: Response,
+  ): Promise<Response> {
+    const { id } = request.params;
+
+    const student = await getStudentRepository().findOneStudent(id);
+
+    return response.json(student);
+  }
+
   async create(request: Request, response: Response): Promise<Response> {
-    const student = request.body as Student;
+    const studentRepo = getStudentRepository();
 
-    const createdStudent = await getStudentRepository().createAndSave(student);
+    const createdUser = await studentRepo.createAndSave(request.body);
 
-    return response.json(createdStudent);
+    if (!createdUser) {
+      return response.json({ message: 'Email already exists' });
+    }
+
+    return response.status(200).json(createdUser);
+  }
+
+  async delete(
+    request: Request<{ id: string }>,
+    response: Response,
+  ): Promise<Response> {
+    const { id } = request.params;
+
+    await getStudentRepository().deleteStudent(id);
+
+    return response.status(200).send();
   }
 }
 
