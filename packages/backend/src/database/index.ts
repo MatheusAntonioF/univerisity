@@ -1,11 +1,18 @@
 import { createConnection, Connection } from 'typeorm';
 
-let connection: Connection;
+import db_config from '../config/database';
+import StudentRepository from '../infra/repositories/Student.repository';
 
-export default async function connect_db(): Promise<void> {
-  connection = await createConnection();
+let _connection: Connection;
+
+export default async function connectionDB(): Promise<void> {
+  _connection = await createConnection(db_config);
 }
 
 export function isConnected(): boolean {
-  return connection.isConnected;
+  return _connection.isConnected;
+}
+
+export function getStudentRepository(): StudentRepository {
+  return _connection.getCustomRepository(StudentRepository);
 }

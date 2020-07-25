@@ -33,7 +33,9 @@
       ],
       "camelcase": "off",
       "class-methods-use-this": "off",
-      "import/prefer-default-export": "off"
+      "import/prefer-default-export": "off",
+      "no-return-assign": "off",
+      "no-underscore-dangle": "off"
     },
     "settings": {
       "import/resolver": {

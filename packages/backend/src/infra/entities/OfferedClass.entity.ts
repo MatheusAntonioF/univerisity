@@ -4,21 +4,15 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  ManyToMany,
 } from 'typeorm';
 
-import Student from './Student.entity';
-
-@Entity()
+@Entity({ name: 'offeredClass' })
 class OfferedClass {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: number;
-
-  @ManyToMany(() => Student, student => student.classes)
-  students: Student[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
