@@ -2,6 +2,7 @@ import { createConnection, Connection } from 'typeorm';
 
 import db_config from '../config/database';
 import StudentRepository from '../infra/repositories/Student.repository';
+import OfferedClassRepository from '../infra/repositories/OfferedClass.repository';
 
 let _connection: Connection;
 
@@ -15,4 +16,7 @@ export function isConnected(): boolean {
 
 export function getStudentRepository(): StudentRepository {
   return _connection.getCustomRepository(StudentRepository);
+}
+export function getOfferedClassRepository(): OfferedClassRepository {
+  return _connection.getCustomRepository(OfferedClassRepository);
 }
