@@ -3,7 +3,7 @@ import React from 'react';
 // import { Container } from './styles';
 
 const OfferedClass: React.FC = () => {
-  return <div />;
+  return <h1>OfferedClass</h1>;
 };
 
 export default OfferedClass;

@@ -9,6 +9,8 @@ import logo from '../../assets/logo.svg';
 import Button from '../Button';
 
 const Layout: React.FC = ({ children }) => {
+  const [, choosenPath] = window.location.pathname.split('/');
+
   return (
     <Container>
       <Header>
@@ -20,12 +22,20 @@ const Layout: React.FC = ({ children }) => {
 
           <div className="button-group">
             <Link to="/students">
-              <Button fontSize={20} color="secondary">
+              <Button
+                fontSize={20}
+                isActive={choosenPath === 'students'}
+                color="secondary"
+              >
                 ESTUDANTES
               </Button>
             </Link>
             <Link to="/offeredClass">
-              <Button fontSize={20} color="secondary">
+              <Button
+                fontSize={20}
+                isActive={choosenPath === 'offeredClass'}
+                color="secondary"
+              >
                 CLASSES
               </Button>
             </Link>
