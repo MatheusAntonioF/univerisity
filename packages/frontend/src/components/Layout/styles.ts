@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
 
   width: 100%;
+  height: 100%;
 `;
 
 export const Header = styled.header`
@@ -54,4 +56,13 @@ export const MainHeader = styled.div`
   }
 `;
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  padding: 50px 10px;
+
+  background: ${props => props.theme.primary.dark};
+
+  max-width: 1200px;
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+`;

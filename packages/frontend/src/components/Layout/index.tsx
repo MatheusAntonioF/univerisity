@@ -1,13 +1,14 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { Container, Header, MainHeader } from './styles';
+
+import { Container, Header, MainHeader, Wrapper } from './styles';
 
 import logo from '../../assets/logo.svg';
 
 import Button from '../Button';
 
-const Layout: React.FC = () => {
+const Layout: React.FC = ({ children }) => {
   return (
     <Container>
       <Header>
@@ -31,6 +32,7 @@ const Layout: React.FC = () => {
           </div>
         </MainHeader>
       </Header>
+      <Wrapper className="teste">{children}</Wrapper>
     </Container>
   );
 };
