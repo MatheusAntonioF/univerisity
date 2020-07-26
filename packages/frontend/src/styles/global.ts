@@ -18,4 +18,13 @@ export default createGlobalStyle`
     font-family: 'Nunito', sans-serif;
     background: #191622;
   }
+
+  button {
+    outline: 0;
+    border: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
 `;

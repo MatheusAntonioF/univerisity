@@ -6,6 +6,9 @@ const dark = {
   secondary: {
     main: '#E89E64',
   },
+  text: {
+    main: '#E1E1E6',
+  },
 };
 
 export default dark;

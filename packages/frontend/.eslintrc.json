@@ -42,7 +42,10 @@
           "tsx": "never"
         }
       ],
-      "camelcase": "off"
+      "camelcase": "off",
+      "react/button-has-type": "off",
+      "react/prop-types": "off",
+      "react/jsx-props-no-spreading": "off"
     },
     "settings": {
       "import/resolver": {
