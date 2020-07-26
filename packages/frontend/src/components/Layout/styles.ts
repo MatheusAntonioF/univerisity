@@ -57,12 +57,22 @@ export const MainHeader = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  padding: 50px 10px;
+  max-width: 1200px;
+  width: 1200px;
+
+  height: 100%;
+
+  padding: 0px 10px;
 
   background: ${props => props.theme.primary.dark};
 
-  max-width: 1200px;
-  width: 1200px;
-  height: 100%;
   margin: 0 auto;
+`;
+
+export const Options = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  padding: 25px 15px;
 `;

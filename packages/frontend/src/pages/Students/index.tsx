@@ -1,9 +1,20 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import Table from '../../components/Table';
 
 const Students: React.FC = () => {
-  return <h1>Students</h1>;
+  // const { isActive, setHandleActiveButtont } = useContext(Context);
+
+  return (
+    <Table
+      title="Estudantes"
+      head={['ID', 'Nome', 'Email', 'Criado em']}
+      body={[
+        ['ID', 'Matheus', 'matheusantoniof@gmail.com', 'Criado em'],
+        ['ID', 'Nome', 'Email', 'Criado em'],
+      ]}
+    />
+  );
 };
 
 export default Students;

@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Container, Header, MainHeader, Wrapper } from './styles';
+import { Container, Header, MainHeader, Options, Wrapper } from './styles';
 
 import logo from '../../assets/logo.svg';
+
+import Context from './Provider';
 
 import Button from '../Button';
 
 const Layout: React.FC = ({ children }) => {
+  const [isActive, setHandleActiveButton] = useState(false);
+
   const [, choosenPath] = window.location.pathname.split('/');
 
   return (
@@ -42,7 +46,23 @@ const Layout: React.FC = ({ children }) => {
           </div>
         </MainHeader>
       </Header>
-      <Wrapper className="teste">{children}</Wrapper>
+      <Wrapper>
+        {choosenPath && (
+          <Options>
+            <Button
+              color="secondary"
+              onClick={() => setHandleActiveButton(true)}
+            >
+              {`${
+                choosenPath === 'students' ? 'NOVO ESTUDANTE' : 'NOVA CLASSE'
+              }`}
+            </Button>
+          </Options>
+        )}
+        <Context.Provider value={{ isActive, setHandleActiveButton }}>
+          {children}
+        </Context.Provider>
+      </Wrapper>
     </Container>
   );
 };
