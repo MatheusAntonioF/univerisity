@@ -9,7 +9,7 @@ class OfferedClassRepository extends Repository<OfferedClass> {
     return allOffClass;
   }
 
-  async checkClassExists(id: number): Promise<boolean> {
+  async checkClassExists(id: string | number): Promise<boolean> {
     const classExists = await this.find({ where: { id } });
 
     if (classExists.length !== 0) {

@@ -10,8 +10,8 @@ class StudentRepository extends Repository<Student> {
     return allStudents;
   }
 
-  async checkEmailExists(email: string): Promise<boolean> {
-    const studentExists = await this.find({ where: { email } });
+  async checkStudentExists(paramToCheck: string): Promise<boolean> {
+    const studentExists = await this.find({ where: { paramToCheck } });
 
     if (studentExists.length !== 0) {
       return true;
@@ -27,7 +27,7 @@ class StudentRepository extends Repository<Student> {
   }
 
   async createAndSave(student: Student): Promise<Student | boolean> {
-    const studentExists = await this.checkEmailExists(student.email);
+    const studentExists = await this.checkStudentExists(student.email);
 
     if (studentExists) {
       return false; // if email already exist
