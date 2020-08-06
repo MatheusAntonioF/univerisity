@@ -11,7 +11,7 @@ import Context from './Provider';
 import Button from '../Button';
 
 const Layout: React.FC = ({ children }) => {
-  const [isActive, setHandleActiveButton] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const [, choosenPath] = window.location.pathname.split('/');
 
@@ -49,17 +49,14 @@ const Layout: React.FC = ({ children }) => {
       <Wrapper>
         {choosenPath && (
           <Options>
-            <Button
-              color="secondary"
-              onClick={() => setHandleActiveButton(true)}
-            >
+            <Button color="secondary" onClick={() => setOpenModal(true)}>
               {`${
                 choosenPath === 'students' ? 'NOVO ESTUDANTE' : 'NOVA CLASSE'
               }`}
             </Button>
           </Options>
         )}
-        <Context.Provider value={{ isActive, setHandleActiveButton }}>
+        <Context.Provider value={{ openModal, setOpenModal }}>
           {children}
         </Context.Provider>
       </Wrapper>

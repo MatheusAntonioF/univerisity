@@ -18,7 +18,7 @@ export const TableComponent = styled.table`
   width: 100%;
   text-align: left;
   border: none;
-  border-spacing: 0 10px;
+  border-spacing: 0 20px;
   border-collapse: separate;
 
   color: ${props => props.theme.text.main};
@@ -31,15 +31,13 @@ export const THead = styled.thead`
 
       border: 5px 0px;
 
-      padding-bottom: 8px;
+      padding: 8px 15px;
 
       &:first-child {
-        padding-left: 8px;
         border-bottom-left-radius: 5px;
       }
 
       &:last-child {
-        padding-right: 8px;
         border-bottom-right-radius: 5px;
       }
     }
@@ -49,8 +47,18 @@ export const THead = styled.thead`
 export const TBody = styled.tbody`
   tr {
     td {
+      background: blue;
+      padding: 8px 15px;
+
+      background: ${props => props.theme.primary.light};
+
       &:first-child {
-        padding-left: 8px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+      &:last-child {
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 8px;
       }
     }
   }
